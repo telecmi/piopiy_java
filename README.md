@@ -1,2 +1,2 @@
 # piopiy-java
-PIOPIY JAVA example  for Incomming and Outgoing Call
+PIOPIY JAVA example  for Incoming and Outgoing Call
