@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/telecmi/WebContent/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/telecmi/Downloads/apache-httpcomponents-httpcore.jar"/>
+	<classpathentry kind="lib" path="/home/telecmi/Downloads/apache-httpcomponents-httpclient.jar"/>
+	<classpathentry kind="lib" path="/home/telecmi/Downloads/java-json.jar"/>
+	<classpathentry kind="lib" path="/home/telecmi/Downloads/org.apache.commons.io.jar"/>
+	<classpathentry kind="lib" path="/home/telecmi/Downloads/org-apache-commons-logging.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

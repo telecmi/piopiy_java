@@ -1,18 +1,24 @@
 package com.telecmi.piopiy;
 
 
+import java.io.StringWriter;
+import java.math.BigInteger;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
 public class GetDigits {
 
-public static void main(String args[]) {
+public static void main(String args[]) throws Exception {
   
 JSONObject getdigits = new JSONObject();
 getdigits.put("start","https://example.com/voice/question.wav");
@@ -25,8 +31,8 @@ JSONObject json = new JSONObject();
 
 json.put("appid",11111);
 json.put("secret","bgct45fg");
-json.put("from",9894);
-json.put("to",9677);
+BigInteger to = new BigInteger("1234567891");
+json.put("to",to);
 json.put("get",getdigits);
 
 String baseurl = "https://piopiy.telecmi.com/v1/getdigits";
@@ -43,8 +49,11 @@ post.setEntity(entity);
 
 
 HttpResponse response = client.execute(post);
-System.out.println("Response: " + response.getStatusLine());
-return response.getStatusLine().toString();
+HttpEntity objEntity = response.getEntity();
+
+StringWriter writer=new StringWriter();
+IOUtils.copy(objEntity.getContent(),writer);
+System.out.println("==="+writer.toString());
 
 
     }

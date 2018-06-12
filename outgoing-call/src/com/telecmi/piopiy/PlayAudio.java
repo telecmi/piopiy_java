@@ -9,24 +9,31 @@ import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+
 
 public class PlayAudio {
 
-public static void main(String args[]) {
+public static void main(String args[]) throws Exception {
   
 JSONObject play = new JSONObject();
 play.put("url","https://example.com/voice/thanks.wav");
 
 
 JSONObject json = new JSONObject();
+BigInteger to = new BigInteger("1234567890");
 
-json.put("appid",11111);
-json.put("secret","bgct45fg");
-json.put("from",9894);
-json.put("to",9677);
+json.put("appid",1111);
+json.put("secret","z76jkk");
+json.put("to",to);
 json.put("play",play);
 
-String baseurl = "https://piopiy.telecmi.com/v1/getdigits";
+String baseurl = "https://piopiy.telecmi.com/v1/playaudio";
 
 
 DefaultHttpClient client = new DefaultHttpClient();
@@ -40,8 +47,12 @@ post.setEntity(entity);
 
 
 HttpResponse response = client.execute(post);
-System.out.println("Response: " + response.getStatusLine());
-return response.getStatusLine().toString();
+HttpEntity objEntity = response.getEntity();
+
+StringWriter writer=new StringWriter();
+IOUtils.copy(objEntity.getContent(),writer);
+System.out.println("==="+writer.toString());
+
 
 
     }
